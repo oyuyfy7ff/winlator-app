@@ -428,6 +428,7 @@ public class Container {
     public static String getFallbackCPUList() {
         String cpuList = "";
         int numProcessors = Runtime.getRuntime().availableProcessors();
+        if (numProcessors == 8) return "4,5,6,7"; // Galaxy A05s (SD680): cores 4-7 = Cortex-A73
         for (int i = 0; i < numProcessors; i++) cpuList += (!cpuList.isEmpty() ? "," : "")+i;
         return cpuList;
     }
